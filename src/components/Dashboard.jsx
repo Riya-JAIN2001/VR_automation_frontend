@@ -55,7 +55,10 @@ function Dashboard() {
     async function fetchData() {
       try {
         setLoading(true);
-        const res = await axios.get('https://vr-backend-kyc2.onrender.com/api/coins');
+        const headers = {
+    "Content-Type": "application/json"
+  };
+        const res = await axios.get('https://vr-backend-kyc2.onrender.com/api/coins', {headers});
         setCryptoList(res.data);
         console.log(res.data)
       } catch (error) {
